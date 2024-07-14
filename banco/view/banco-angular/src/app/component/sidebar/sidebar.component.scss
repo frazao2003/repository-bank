@@ -1,0 +1,87 @@
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: left; /* Ajustado para align-items: flex-start; se necessário */
+    justify-content: flex-start;
+    height: 100%;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: left; /* Ajustado para align-items: flex-start; se necessário */
+    justify-content: flex-start;
+    flex-grow: 0.08;
+    padding: 10px;
+    gap: 12px;
+    background-color: #c6c6c6;
+}
+
+img {
+    height: 60px;
+    align-self: flex-start;
+}
+
+button {
+    width: 100%;
+    font-size: 20px;
+    font-style: bold;
+    font-weight: 200;
+    border: none;
+    text-align: left;
+    background: #ffff;
+    padding: 12px 24px;
+    padding-left: 0;
+    vertical-align: middle;
+    display: flex;
+    background-color: #c6c6c6;
+    align-items: center; /* Centraliza verticalmente os elementos dentro do botão */
+}
+
+.img-list{
+    height: fit-content;
+    padding-right: 10px;
+    padding-left: 2px;
+}
+.img-list-2{
+    height: fit-content;
+    padding-right: 6px;
+    padding-left: 2px;
+}
+
+button:hover{
+    background-color: #cb6ff641;
+    color: #73219A;
+}
+
+.div-wrapper{
+    height: 60%;
+}
+
+ul.ul-user {
+    display: flex; /* Usa flexbox para alinhar itens */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.img-user {
+    width: 50px; /* Ajusta o tamanho da imagem conforme necessário */
+    height: 50px;
+    margin-right: 10px; /* Adiciona margem à direita para separar da próxima elemento */
+}
+
+ul.ul-user div {
+    display: flex; /* Usa flexbox para alinhar itens */
+    flex-direction: column; /* Coluna para alinhar verticalmente */
+}
+
+ul.ul-user p {
+    margin: 0; /* Remove margens padrão do parágrafo */
+    font-weight: bold;
+}
+
+.p-email{
+    color: #73219A;
+}

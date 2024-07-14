@@ -1,0 +1,49 @@
+<main>
+    <section>
+        <img src="assets/svg/logo.svg"/>
+            <ul><button (click)="navigateHome()">
+                <img class="img-list" src="assets/svg/u_home-alt.svg"/>
+                Home
+            </button></ul>
+            <ul><button>
+                <img class="img-list-2" src="assets/svg/u_money-bill.svg"/>
+                Depósito
+            </button></ul>
+            <ul><button>
+                <img class="img-list-2" src="assets/svg/u_money-bill.svg"/>
+                Saque
+            </button></ul>
+            <ul><button>
+                <img class="img-list-2" src="assets/svg/u_money-bill.svg"/>
+                Transferência
+            </button></ul>
+            <ul><button>
+                <img class="img-list" src="assets/svg/u_calender.svg"/>
+                Extrato
+            </button></ul>
+            <ul><button>
+                <img class="img-list" src="assets/svg/u_user-circle.svg"/>
+                Meus Dados
+            </button></ul>
+            <div class="div-wrapper">
+
+            </div>
+            <ul><button (click)="onLogout()">
+                <img class="img-list" src="assets/svg/u_sign-out-alt.svg"/>
+                Logout
+            </button></ul>
+            <ul><button>
+                <img class="img-list" src="assets/svg/u_setting.svg"/>
+                Configurações
+            </button></ul>
+            <ul class="ul-user">
+                <img class="img-user" src="assets/svg/Display Picture Variants.svg"/>
+                <ul>
+                    <p>{{nome}}</p>
+                    <p class="p-email">{{email}}</p>
+                </ul>
+            </ul>
+            
+    </section>
+
+</main>

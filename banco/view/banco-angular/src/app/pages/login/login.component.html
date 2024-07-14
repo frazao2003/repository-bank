@@ -1,0 +1,29 @@
+<app-default-login-layout
+    title="Login into your account"
+    primaryBtnText="Login Now"
+    secondaryBtnText="Signup Now"
+    (submit)="login()"
+    (navigate)="navigate()"
+    [disablePrimaryBtn]="!loginForm.valid"
+>
+<form [formGroup]="loginForm">
+    <app-primary-input
+        formControlName="cpf"
+        inputName="cpf"
+        type="cpf"
+        label="CPF"
+        placeholder="000.000.000-00"
+    >
+        <img src="assets\svg\iconmessage.svg"/>
+    </app-primary-input>
+    <app-primary-input
+        formControlName="password"
+        inputName="password"
+        type="password"
+        label="Your Password"
+    >
+    <img src="assets\svg\block.svg"/>
+</app-primary-input>
+<span>Forgot password?</span>
+</form>
+</app-default-login-layout>

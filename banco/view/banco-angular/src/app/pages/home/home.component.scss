@@ -1,0 +1,126 @@
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; /* Para esticar os itens verticalmente */
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+section {
+    width: 100%;
+    height: 100%; 
+    display: row;
+    flex-direction: column;
+    align-items: flex-start;
+
+
+}
+
+
+
+
+.home {
+    width: 70%;
+    flex-grow: 1;
+    padding-left: 0;
+
+
+    
+}
+
+
+
+
+
+.side-bar{
+    flex-grow: 0.2;
+    height: 100%;
+}
+
+
+.img-user {
+    width: 100px; /* Ajusta o tamanho da imagem conforme necessário */
+    height: 80px;
+    margin-right: 10px; /* Adiciona margem à direita para separar da próxima elemento */
+}
+
+
+.p-email{
+    color: #73219A;
+}
+
+.div-conta{
+    height: 25%;
+    width: 100%;
+    background-color: #73219A;
+    padding-left: 50px;
+    font-style: bold;
+    color: white;
+    position: relative;
+
+    .div-elementos-conta{
+        padding-right: 10px;
+    }
+    
+
+    h3{
+        font-size: 24px;
+        font-family: 'Montserrat';
+        font-weight: 300;
+    }
+
+    h2{
+        font-style: bold;
+        font-size: 30px;
+    }
+
+
+    .div-wrapper{
+        height: 40px;
+    }
+
+    .div-wrapper2{
+        height: 20px;
+    }
+
+    .img-hide{
+        height: 20px;
+        padding-left: 150px;
+    }
+
+    .div-card{
+        position: absolute;
+        right: 100px; /* Ajuste conforme necessário */
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20%;
+        padding: 10px;
+        height: 75%;
+        border-radius: 8px;
+        color: #000000;
+        margin: none;
+        background-image: url('bg-card.svg');
+        background-size: cover; /* Cobre todo o contêiner */
+        background-position: center;
+        
+    }
+    .img-form{
+        height: 30%;
+    }
+
+    .img-chip{
+        position: absolute;
+        right: 13px; /* Ajuste conforme necessário */
+        top: 20%;
+        transform: translateY(-50%);
+        width: 20%;
+        padding: 10px;
+
+    }
+}
+
+
+
+
+
