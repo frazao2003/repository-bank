@@ -1,1 +1,28 @@
-<p>deposito works!</p>
+<html>
+    <head>
+
+    </head>
+    <main>
+        <app-sidebar class="side-bar"></app-sidebar>
+        <section class="section-form">
+            <div class = "form-deposito" >
+                <h1>Deposito</h1>
+                <app-primary-input
+                formControlName="valor"
+                inputName="valor"
+                type="valor"
+                label="Valor"
+                placeholder="00,00"
+                ></app-primary-input>
+                <button 
+                class="btn-primary" 
+                (click)="deposito()"
+            >
+            </button>
+    
+            </div>
+    
+        </section>
+
+    </main>
+</html>

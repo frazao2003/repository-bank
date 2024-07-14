@@ -4,6 +4,9 @@ package com.banco.banco.model.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.banco.banco.model.dto.DepositoDTO;
+import com.banco.banco.model.dto.SaqueDTO;
+import com.banco.banco.model.dto.TransferenciaDTO;
 import com.banco.banco.model.exception.BadRequest;
 import com.banco.banco.model.exception.ConteudoInvalido;
 import com.banco.banco.model.exception.RegisterNull;
@@ -56,42 +59,43 @@ public class ContaService{
         return listaRetornoDTO;
     }
 
-    public void depositar(String agencia, String numeroConta, Double valor) {
-        Conta contaBancaria = this.carregarConta(agencia, numeroConta);
-        contaBancaria.setSaldo(contaBancaria.getSaldo() + valor);
+    public void depositar(DepositoDTO depositoDTO) {
+        Conta contaBancaria = this.carregarConta(depositoDTO.getAgencia(), depositoDTO.getNumero());
+        contaBancaria.setSaldo(contaBancaria.getSaldo() + depositoDTO.getValor());
         contaBancariaRepository.save(contaBancaria);
 
-        extratoService.salvarExtrato(agencia, numeroConta, valor, "DEPOSITO");
+        extratoService.salvarExtrato(depositoDTO.getAgencia(), depositoDTO.getNumero(),depositoDTO.getValor(), "DEPOSITO");
 
 
     }
 
-    public void sacar(String agencia, String numero, Double valor) {
-        Conta contaBancaria = this.carregarConta(agencia, numero);
-        if (contaBancaria.getSaldo() < valor) {
+    public void sacar(SaqueDTO saqueDTO) {
+        Conta contaBancaria = this.carregarConta(saqueDTO.getAgencia(), saqueDTO.getNumero());
+        if (contaBancaria.getSaldo() < saqueDTO.getValor()) {
             throw new BadRequest("Saldo Insuficiente");
         }
-        contaBancaria.setSaldo(contaBancaria.getSaldo() - valor);
+        contaBancaria.setSaldo(contaBancaria.getSaldo() - saqueDTO.getValor());
         contaBancariaRepository.save(contaBancaria);
 
-        extratoService.salvarExtrato(agencia, numero, valor, "SAQUE");
+        extratoService.salvarExtrato(saqueDTO.getAgencia(), saqueDTO.getNumero(), saqueDTO.getValor(), "SAQUE");
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void transferir(String agenciaOrigem, String numeroOrigem, String agenciaDestino, String numeroDestino, Double valor) {
+    public void transferir(TransferenciaDTO transferenciaDTO) {
 
 
-        Conta contaOrigem = carregarConta(agenciaOrigem, numeroOrigem);
-        Conta contaDestino = carregarConta(agenciaDestino, numeroDestino);
-        if (contaOrigem.getSaldo() < valor) {
+        Conta contaOrigem = carregarConta(transferenciaDTO.getAgenciaOrigem(), transferenciaDTO.getNumeroOrigem());
+        Conta contaDestino = carregarConta(transferenciaDTO.getAgenciaDestino(), transferenciaDTO.getNumeroDestino());
+        if (contaOrigem.getSaldo() < transferenciaDTO.getValor()) {
             throw new BadRequest("Saldo Insuficiente");
         }
-        contaOrigem.setSaldo(contaOrigem.getSaldo() - valor);
-        contaDestino.setSaldo(contaDestino.getSaldo() + valor);
+        contaOrigem.setSaldo(contaOrigem.getSaldo() - transferenciaDTO.getValor());
+        contaDestino.setSaldo(contaDestino.getSaldo() + transferenciaDTO.getValor());
         contaBancariaRepository.save(contaDestino);
         contaBancariaRepository.save(contaOrigem);
 
-        extratoService.salvarExtratoTransferencia(agenciaOrigem, numeroOrigem, agenciaDestino, numeroDestino, valor);
+        extratoService.salvarExtratoTransferencia(transferenciaDTO.getAgenciaOrigem(), transferenciaDTO.getNumeroOrigem(),
+                  transferenciaDTO.getAgenciaDestino(), transferenciaDTO.getNumeroDestino(), transferenciaDTO.getValor());
 
 
     }

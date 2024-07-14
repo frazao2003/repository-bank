@@ -13,7 +13,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.access.expression.WebExpressionAuthorizationManager;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
@@ -33,6 +32,10 @@ public class SecurityConfig{
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/rest/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/rest/auth/register").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/rest/contas/deposito").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/rest/contas/sacar").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/rest/contas/transferencia").authenticated()
+
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();

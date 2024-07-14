@@ -1,0 +1,38 @@
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; /* Para esticar os itens verticalmente */
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+section {
+    width: 100%;
+    height: 100%; 
+    display: row;
+    flex-direction: column;
+    align-items: flex-start;
+
+
+}
+.section-form{
+    width: 70%;
+    flex-grow: 1;
+    padding-left: 0;
+
+}
+
+.side-bar{
+    flex-grow: 0.2;
+    height: 100%;
+}
+
+.form-deposito{
+    height: 25%;
+    width: 100%;
+    padding-left: 50px;
+    font-style: bold;
+    color: white;
+    position: relative;
+}

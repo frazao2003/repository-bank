@@ -2,16 +2,14 @@ package com.banco.banco.controller.rest;
 
 import java.util.List;
 
+import com.banco.banco.model.dto.DepositoDTO;
+import com.banco.banco.model.dto.SaqueDTO;
+import com.banco.banco.model.dto.TransferenciaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.banco.banco.model.dto.ContaClienteDTO;
 import com.banco.banco.model.entity.Conta;
@@ -39,23 +37,23 @@ public class ContaRest{
         return new ResponseEntity<>(conta.getSaldo(), HttpStatus.OK);
     }
 
-    @PutMapping(value = "/deposito/{agencia}/{numero}/{valor}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody ResponseEntity<Void> depositar(@PathVariable String agencia, @PathVariable String numero, @PathVariable Double valor ){
-        contaBancariaService.depositar(agencia, numero, valor);
+    @PutMapping(value = "/deposito")
+    public @ResponseBody ResponseEntity<Void> depositar(@RequestBody DepositoDTO depositoDTO){
+        contaBancariaService.depositar(depositoDTO);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
 
-    @PutMapping(value = "/sacar/{agencia}/{numero}/{valor}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody ResponseEntity<Void> sacar (@PathVariable String agencia, @PathVariable String numero, @PathVariable Double valor){
-        contaBancariaService.sacar(agencia, numero, valor);
+    @PutMapping(value = "/sacar", produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody ResponseEntity<Void> sacar (@RequestBody SaqueDTO saqueDTO){
+        contaBancariaService.sacar(saqueDTO);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
 
-    @PutMapping(value = "/transferencia/{agenciaOrigem}/{numeroOrigem}/{agenciaDestino}/{numeroDestino}/{valor}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody ResponseEntity<Void> transferir (@PathVariable String agenciaOrigem, @PathVariable String numeroOrigem,@PathVariable String agenciaDestino, @PathVariable String numeroDestino, @PathVariable Double valor){
-        contaBancariaService.transferir(agenciaOrigem, numeroOrigem, agenciaDestino, numeroDestino, valor);
+    @PutMapping(value = "/transferencia", produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody ResponseEntity<Void> transferir (@RequestBody TransferenciaDTO transferenciaDTO){
+        contaBancariaService.transferir(transferenciaDTO);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
