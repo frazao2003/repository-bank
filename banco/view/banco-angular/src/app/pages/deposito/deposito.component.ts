@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PrimaryInputComponent } from "../../component/primary-input/primary-input.component";
 import { SidebarComponent } from "../../component/sidebar/sidebar.component";
@@ -9,11 +9,13 @@ import { HomeComponent } from "../home/home.component";
 
 interface DepositoForm {
   valor: FormControl<number | null>;
+  agencia: FormControl<string | null>;
+  numero: FormControl<string | null>;
 }
 @Component({
   selector: 'app-deposito',
   standalone: true,
-  imports: [SidebarComponent, HomeComponent, PrimaryInputComponent],
+  imports: [SidebarComponent, HomeComponent, PrimaryInputComponent, ReactiveFormsModule],
   templateUrl: './deposito.component.html',
   styleUrl: './deposito.component.scss'
 })
@@ -26,15 +28,18 @@ export class DepositoComponent {
   ){
     this.depositoForm = new FormGroup({
       valor: new FormControl<number | null>(0, [Validators.required]),
+      agencia: new FormControl('', [Validators.required]),
+      numero: new FormControl('', [Validators.required]),
     })
+    this.depositoForm.controls.agencia.disable();
+    this.depositoForm.controls.numero.disable();
   }
   depositoDTO: DepositoDTO = { agencia: '', numero: '', valor: 0};
 
   agencia: string | null = null;
   numero: string | null = null;
 
-
-  deposito(){
+  ngOnInit(): void {
     const agenciaSession = sessionStorage.getItem('agencia');
     if (agenciaSession) {
       this.agencia = agenciaSession;
@@ -43,6 +48,13 @@ export class DepositoComponent {
     if (numeroSession) {
       this.numero = numeroSession;
     }
+  }
+
+  
+
+
+  deposito(){
+
     this.depositoDTO.agencia = this.agencia!;
     this.depositoDTO.numero = this.numero!;
     this.depositoDTO.valor = this.depositoForm.value.valor!;

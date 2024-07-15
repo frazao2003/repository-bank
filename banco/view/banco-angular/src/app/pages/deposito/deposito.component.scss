@@ -26,13 +26,42 @@ section {
 .side-bar{
     flex-grow: 0.2;
     height: 100%;
+    padding-right: 0;
 }
 
 .form-deposito{
     height: 25%;
     width: 100%;
-    padding-left: 50px;
+    padding-left: 0px;
     font-style: bold;
-    color: white;
     position: relative;
 }
+
+input{
+    height: 30px;
+    border-radius: 5px;
+    border-width: 1px;
+}
+.div-wrapper{
+    height: 50px;
+}
+.div-wrapper2{
+    height: 25px;
+}
+
+.form-group{
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+
+    label {
+        margin-bottom: 5px;
+        font-size: 25px;
+        font-family: 'Montserrat';
+        font-weight: 300;
+      }
+
+
+}
+
