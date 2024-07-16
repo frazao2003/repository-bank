@@ -3,7 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { PrimaryInputComponent } from "../../component/primary-input/primary-input.component";
 import { SidebarComponent } from "../../component/sidebar/sidebar.component";
-import { DepositoDTO } from '../../interface/DepositoDTO';
+import { TransacoesDTO } from '../../interface/TransacoesDTO';
 import { ContaService } from '../../service/conta.service';
 import { HomeComponent } from "../home/home.component";
 
@@ -34,7 +34,7 @@ export class DepositoComponent {
     this.depositoForm.controls.agencia.disable();
     this.depositoForm.controls.numero.disable();
   }
-  depositoDTO: DepositoDTO = { agencia: '', numero: '', valor: 0};
+  depositoDTO: TransacoesDTO = { agencia: '', numero: '', valor: 0};
 
   agencia: string | null = null;
   numero: string | null = null;

@@ -35,15 +35,22 @@ section {
     padding-left: 0px;
     font-style: bold;
     position: relative;
+
+    h1{
+        font-size: 50px;
+        font-family: 'Montserrat';
+        font-weight: 500;
+    }
 }
 
 input{
     height: 30px;
     border-radius: 5px;
     border-width: 1px;
+    
 }
 .div-wrapper{
-    height: 50px;
+    height: 30px;
 }
 .div-wrapper2{
     height: 25px;
@@ -54,6 +61,7 @@ input{
     display: flex;
     flex-direction: column;
     width: 500px;
+    
 
     label {
         margin-bottom: 5px;
@@ -62,6 +70,38 @@ input{
         font-weight: 300;
       }
 
+    .input-disable{
+        border-color: black;
+        background-color: #5555551f;
+        font-size: 20px
+    }
+    .input{
+        width: 30%;
+        font-size: 20px;
+    }
+
+
 
 }
+button{
+    position:absolute;
+    height: 40px;
+    right: 1170px;
+    width: 100px;
+    border-radius: 8px;
+    background-color: #73219A;
+    color: #ffff;
+    border-color: #73219A;
+}
+button:hover{
+    background-color: #cb6ff641;
+    color: black;
+    border-color: black;
+}
+
+button:active{
+    background-color: transparent;
+    border-color: black;
+}
+
 

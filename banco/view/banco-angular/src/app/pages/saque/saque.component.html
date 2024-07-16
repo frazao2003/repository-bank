@@ -1,1 +1,37 @@
-<p>saque works!</p>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    </head>
+    <main>
+        <app-sidebar class="side-bar"></app-sidebar>
+        <section class="section-form">
+            <div class = "form-deposito" >
+                <div class="div-wrapper"></div>
+                <h1>Saque</h1>
+                <div class="div-wrapper2"></div>
+                <form [formGroup]="saqueForm" (ngSubmit)="saque()">
+                    <div class="form-group">
+                        <label for="agencia">Agência</label>
+                        <input id="agencia" formControlName="agencia" type="text" placeholder="{{agencia}}" class="input-disable">
+                    </div>
+                    <div class="div-wrapper2"></div>
+
+                    <div class="form-group">
+                        <label for="numero">Número da conta</label>
+                        <input id="numero" formControlName="numero" type="text" placeholder="{{numero}}" class="input-disable">
+                    </div>
+                    <div class="div-wrapper2"></div>
+                    <div class="form-group">
+                        <label for="valor">Valor</label>
+                        <input id="valor" formControlName="valor" type="number" placeholder="R$ 0,00" class="input">
+                    </div>
+                    <div class="div-wrapper2"></div>
+                    <button type="submit">Sacar</button>
+                  </form>
+            </div>
+    
+        </section>
+
+    </main>
+</html>
+

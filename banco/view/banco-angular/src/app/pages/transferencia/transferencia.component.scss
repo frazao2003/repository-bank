@@ -1,0 +1,106 @@
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; /* Para esticar os itens verticalmente */
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+section {
+    width: 100%;
+    height: 100%; 
+    display: row;
+    flex-direction: column;
+    align-items: flex-start;
+
+
+}
+.section-form{
+    width: 70%;
+    flex-grow: 1;
+    padding-left: 0;
+
+}
+
+.side-bar{
+    flex-grow: 0.2;
+    height: 100%;
+    padding-right: 0;
+}
+
+.form-deposito{
+    height: 25%;
+    width: 100%;
+    padding-left: 0px;
+    font-style: bold;
+    position: relative;
+
+    h1{
+        font-size: 50px;
+        font-family: 'Montserrat';
+        font-weight: 500;
+    }
+}
+
+input{
+    height: 30px;
+    border-radius: 5px;
+    border-width: 1px;
+    
+}
+.div-wrapper{
+    height: 30px;
+}
+.div-wrapper2{
+    height: 25px;
+}
+
+.form-group{
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+
+    label {
+        margin-bottom: 5px;
+        font-size: 25px;
+        font-family: 'Montserrat';
+        font-weight: 300;
+      }
+
+    .input-disable{
+        border-color: black;
+        background-color: #5555551f;
+        font-size: 20px
+    }
+    .input{
+        width: 30%;
+        font-size: 20px;
+    }
+
+
+
+}
+button{
+    position:absolute;
+    height: 40px;
+    right: 1170px;
+    width: 100px;
+    border-radius: 8px;
+    background-color: #73219A;
+    color: #ffff;
+    border-color: #73219A;
+}
+button:hover{
+    background-color: #cb6ff641;
+    color: black;
+    border-color: black;
+}
+
+button:active{
+    background-color: transparent;
+    border-color: black;
+}
+
+

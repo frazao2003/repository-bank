@@ -1,1 +1,50 @@
-<p>transferencia works!</p>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    </head>
+    <main>
+        <app-sidebar class="side-bar"></app-sidebar>
+        <section class="section-form">
+            <div class = "form-deposito" >
+                <div class="div-wrapper"></div>
+                <h1>Transferência</h1>
+                <div class="div-wrapper2"></div>
+                <form [formGroup]="transferenciaForm" (ngSubmit)="transferencia()">
+                    <div class="form-group">
+                        <label for="agencia">Agência</label>
+                        <input id="agencia" formControlName="agencia" type="text" placeholder="{{agenciaOrigem}}" class="input-disable">
+                    </div>
+                    <div class="div-wrapper2"></div>
+
+                    <div class="form-group">
+                        <label for="numero">Número da conta</label>
+                        <input id="numero" formControlName="numero" type="text" placeholder="{{numeroOrigem}}" class="input-disable">
+                    </div>
+                    <div class="div-wrapper2"></div>
+                    <div class="form-group">
+                        <label for="agenciaDestino">Agência Destino</label>
+                        <input id="agenciaDestino" formControlName="agenciaDestino" type="text" placeholder="Digite a agência destino" >
+                    </div>
+                    <div class="div-wrapper2"></div>
+
+                    <div class="form-group">
+                        <label for="numeroDestino">Número Destino</label>
+                        <input id="numeroDestino" formControlName="numeroDestino" type="text" placeholder="Digite número destino" >
+                    </div>
+                    <div class="div-wrapper2"></div>
+
+                    <div class="form-group">
+                        <label for="valor">Valor</label>
+                        <input id="valor" formControlName="valor" type="number" placeholder="R$ 0,00" class="input">
+                    </div>
+                    <div class="div-wrapper2"></div>
+                    <button type="submit">Transferir</button>
+                  </form>
+            </div>
+    
+        </section>
+
+    </main>
+</html>
+
+

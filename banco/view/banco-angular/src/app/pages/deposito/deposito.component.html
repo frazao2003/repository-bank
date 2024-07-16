@@ -6,34 +6,26 @@
         <app-sidebar class="side-bar"></app-sidebar>
         <section class="section-form">
             <div class = "form-deposito" >
-                <h1>Deposito</h1>
-                <hr>
                 <div class="div-wrapper"></div>
+                <h1>Depósito</h1>
+                <div class="div-wrapper2"></div>
                 <form [formGroup]="depositoForm" (ngSubmit)="deposito()">
                     <div class="form-group">
                         <label for="agencia">Agência</label>
-                        <input id="agencia" formControlName="agencia" type="text" placeholder="{{agencia}}">
-                        <div *ngIf="depositoForm.controls.agencia.invalid && depositoForm.controls.agencia.touched">
-                          Agência é obrigatória.
-                        </div>
+                        <input id="agencia" formControlName="agencia" type="text" placeholder="{{agencia}}" class="input-disable">
                     </div>
                     <div class="div-wrapper2"></div>
 
                     <div class="form-group">
-                        <label for="numero">Número</label>
-                        <input id="numero" formControlName="numero" type="text" placeholder="{{numero}}">
-                        <div *ngIf="depositoForm.controls.numero.invalid && depositoForm.controls.numero.touched">
-                          Número é obrigatório.
-                        </div>
+                        <label for="numero">Número da conta</label>
+                        <input id="numero" formControlName="numero" type="text" placeholder="{{numero}}" class="input-disable">
                     </div>
                     <div class="div-wrapper2"></div>
                     <div class="form-group">
                         <label for="valor">Valor</label>
                         <input id="valor" formControlName="valor" type="number" placeholder="R$ 0,00" class="input">
-                        <div *ngIf="depositoForm.controls.numero.invalid && depositoForm.controls.numero.touched">
-                          Número é obrigatório.
-                        </div>
                     </div>
+                    <div class="div-wrapper2"></div>
                     <button type="submit">Depositar</button>
                   </form>
             </div>

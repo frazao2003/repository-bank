@@ -47,6 +47,12 @@ export class SidebarComponent implements OnInit {
   navigateDeposito(){
     this.router.navigate(['deposito'])
   }
+  navigateSaque(){
+    this.router.navigate(['saque'])
+  }
+  navigateTransf(){
+    this.router.navigate(['transferencia'])
+  }
 
   
 
